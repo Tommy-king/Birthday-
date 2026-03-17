@@ -3,57 +3,61 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday Nibedita 💖</title>
+<title>Nibedita 💖</title>
 
 <link rel="stylesheet" href="main.css">
+
+<!-- Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1/dist/confetti.browser.min.js"></script>
 </head>
 
 <body>
 
-<!-- 🎬 Netflix Intro -->
-<div id="netflix">
-  <h1>N</h1>
-</div>
+<!-- 🌌 BACKGROUND -->
+<div class="bg"></div>
 
-<!-- 💖 Typing Intro -->
-<div id="intro">
-  <h1 id="typing"></h1>
-</div>
+<!-- 🎬 HERO -->
+<section class="hero">
+  <h1 class="title">Nibedita</h1>
+  <p class="subtitle">A Story of Beautiful Moments 💖</p>
+  <button onclick="startExperience()">Enter</button>
+</section>
 
-<!-- 🎉 MAIN -->
-<div id="main">
+<!-- 🎥 CINEMATIC REEL -->
+<section id="reel">
 
-  <h1 class="title">For Nibedita 💖</h1>
-
-  <!-- 🎥 CINEMATIC ALBUM -->
-  <div class="cinematic">
-    <img id="cinema-img" src="images/r1.png">
-    <div class="overlay"></div>
-    <div id="caption"></div>
+  <div class="frame">
+    <img src="images/r1.png">
+    <div class="text">Every moment with you feels magical ✨</div>
   </div>
 
-  <!-- 🎂 CAKE -->
-  <div class="cake" onclick="startMicBlow()">
-    🎂
-    <div id="flame">🔥</div>
+  <div class="frame">
+    <img src="images/r2.png">
+    <div class="text">Your smile lights up everything 😊</div>
   </div>
 
-  <!-- 💌 MESSAGE -->
-  <p class="message">
-    Dear Nibedita 💖 <br><br>
-    You are a beautiful part of my life 🌸 <br>
-    Your smile, your kindness, your presence means everything ✨ <br><br>
-    Happy Birthday 🎂💫
-  </p>
+  <div class="frame">
+    <img src="images/r3.png">
+    <div class="text">Memories I will always cherish 💫</div>
+  </div>
 
-  <button onclick="startShow()">Start Celebration 🎉</button>
+  <div class="frame">
+    <img src="images/r4.png">
+    <div class="text">You are truly special 🌸</div>
+  </div>
 
-</div>
+</section>
 
-<!-- 🎵 MUSIC -->
+<!-- 🎂 FINAL SCREEN -->
+<section class="final">
+  <h2>Happy Birthday Nibedita 🎂💖</h2>
+  <button onclick="celebrate()">Celebrate 🎉</button>
+</section>
+
 <audio id="music" loop>
-  <source src="music/setlove.mp3" type="audio/mpeg">
+  <source src="music/setlove.mp3">
 </audio>
 
 <script src="main.js"></script>
