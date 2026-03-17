@@ -3,40 +3,38 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nibedita 💖</title>
+<title>Happy Birthday Nibedita 💖</title>
 
 <link rel="stylesheet" href="main.css">
-
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1/dist/confetti.browser.min.js"></script>
 </head>
 
 <body>
 
-<!-- 🎬 CINEMATIC INTRO -->
+<!-- 🎬 Netflix Intro -->
+<div id="netflix">
+  <h1>N</h1>
+</div>
+
+<!-- 💖 Typing Intro -->
 <div id="intro">
   <h1 id="typing"></h1>
 </div>
 
-<!-- 💖 MAIN -->
+<!-- 🎉 MAIN -->
 <div id="main">
 
   <h1 class="title">For Nibedita 💖</h1>
 
-  <!-- 🎥 SLIDESHOW -->
-  <div class="slideshow">
-    <img id="slide" src="images/r1.png">
-  </div>
-
-  <!-- 📖 FLIPBOOK -->
-  <div class="flipbook">
-    <div class="page">Happy Birthday 🎉</div>
-    <div class="page">You are amazing 💖</div>
-    <div class="page">Thank you for everything ✨</div>
-    <div class="page">Stay happy always 😊</div>
+  <!-- 🎥 CINEMATIC ALBUM -->
+  <div class="cinematic">
+    <img id="cinema-img" src="images/r1.png">
+    <div class="overlay"></div>
+    <div id="caption"></div>
   </div>
 
   <!-- 🎂 CAKE -->
-  <div class="cake" onclick="blowCandle()">
+  <div class="cake" onclick="startMicBlow()">
     🎂
     <div id="flame">🔥</div>
   </div>
@@ -44,8 +42,9 @@
   <!-- 💌 MESSAGE -->
   <p class="message">
     Dear Nibedita 💖 <br><br>
-    You are not just a friend, you are a beautiful part of my life 🌸 <br>
-    May your life be filled with love, happiness and success ✨
+    You are a beautiful part of my life 🌸 <br>
+    Your smile, your kindness, your presence means everything ✨ <br><br>
+    Happy Birthday 🎂💫
   </p>
 
   <button onclick="startShow()">Start Celebration 🎉</button>
@@ -58,5 +57,6 @@
 </audio>
 
 <script src="main.js"></script>
+
 </body>
 </html>
