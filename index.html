@@ -1,149 +1,69 @@
 <!DOCTYPE html>
-<html lang="vi">
-
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Uyên Nhi</title>
-    <link rel="shortcut icon" href="./icon.png" type="image/x-icon">
-    <link rel="stylesheet" href="main.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>Happy Birthday Nibedita 💖</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="main.css">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1/dist/confetti.browser.min.js"></script>
 </head>
 
 <body>
-    <div id="drag-container">
-        <div id="spin-container">
-            <img src="./images/r1.png" alt="">
-            <img src="./images/r2.png" alt="">
-            <img src="./images/r3.png" alt="">
-            <img src="./images/r4.png" alt="">
-            <img src="./images/r5.jpg" alt="">
-            <img src="./images/r6.png" alt="">
-            <img src="./images/r7.png" alt="">
-            <img src="./images/r8.png" alt="">
-            <img src="./images/r9.png" alt="">
-            <img src="./images/r10.png" alt="">
-            <p style="">Happy<span style=""> Birthday</span> Rashmii</p>
-            <button class="button" onclick="confetti()"></button>
-        </div>
-        <div id="ground"></div>
-    </div>
 
-    <div id="music-container"></div>
-    <!-- <div id="canva">
-        <canvas id="canvas"></canvas>
-    </div> -->
+<!-- 🎬 INTRO -->
+<div id="intro">
+  <h1 id="typing"></h1>
+</div>
 
-    <!-- Audio tự động phát -->
-    <!-- <audio id="myAudio" autoplay playsinline>
-        <source src="music/setlove.mp3" type="audio/mpeg">
-        <source src="music/setlove.ogg" type="audio/ogg">
-    </audio> -->
-      <script src='https://cdn.jsdelivr.net/npm/canvas-confetti@1/dist/confetti.browser.min.js'></script>
-    <script src="main.js"></script>
+<!-- 💖 MAIN -->
+<div id="main">
 
-    <script>
-        window.onload = function () {
-            var audio = document.getElementById("myAudio");
-            audio.muted = false;
-            audio.play().catch(function (e) {
-                console.log('Audio playback failed:', e);
-            });
+  <h1 class="title">Happy Birthday Nibedita 🎉💖</h1>
 
-            // Hiệu ứng pháo hoa và trái tim
-            const canvas = document.getElementById("canvas");
-            const ctx = canvas.getContext("2d");
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
+  <!-- 📸 ALBUM -->
+  <div class="album">
+    <img src="images/r1.png">
+    <img src="images/r2.png">
+    <img src="images/r3.png">
+    <img src="images/r4.png">
+    <img src="images/r5.jpg">
+    <img src="images/r6.png">
+    <img src="images/r7.png">
+    <img src="images/r8.png">
+  </div>
 
-            function random(min, max) {
-                return Math.random() * (max - min) + min;
-            }
+  <!-- 💌 MESSAGE -->
+<div class="message">
+  <p>
+    Hey Nibedita 💖 <br><br>
+    You’re truly one of the brightest gems in my life 🌸 <br>
+    Thanks for all the laughs, crazy adventures, and unforgettable memories we’ve shared ✨ <br><br>
+    Wishing you endless happiness, love, and amazing success in everything you do 🎂 <br><br>
+    Never stop smiling, because your smile lights up the world 😊💫
+  </p>
+</div>
 
-            function Firework(x, y) {
-                this.x = x;
-                this.y = y;
-                this.radius = random(2, 4);
-                this.color = `hsl(${random(0, 360)}, 100%, 50%)`;
-                this.vx = random(-3, 3);
-                this.vy = random(-3, 3);
-                this.life = 100;
-            }
+  <!-- 🎆 BUTTON -->
+  <button onclick="startParty()">Celebrate 🎉</button>
 
-            Firework.prototype.draw = function () {
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                ctx.fillStyle = this.color;
-                ctx.fill();
-            };
+</div>
 
-            Firework.prototype.update = function () {
-                this.x += this.vx;
-                this.y += this.vy;
-                this.life--;
-            };
+<!-- 📸 FULLSCREEN VIEW -->
+<div id="viewer">
+  <span onclick="closeViewer()">×</span>
+  <img id="viewer-img">
+</div>
 
-            function Heart(x, y) {
-                this.x = x;
-                this.y = y;
-                this.size = random(20, 40);
-                this.color = 'red';
-                this.vy = random(-2, -1);
-                this.opacity = 1;
-            }
+<!-- 🎵 MUSIC -->
+<audio id="bgMusic" loop>
+  <source src="music/setlove.mp3" type="audio/mpeg">
+</audio>
 
-            Heart.prototype.draw = function () {
-                ctx.beginPath();
-                ctx.moveTo(this.x, this.y);
-                ctx.bezierCurveTo(this.x - this.size / 2, this.y - this.size / 2, this.x - this.size, this.y + this.size / 3, this.x, this.y + this.size);
-                ctx.bezierCurveTo(this.x + this.size, this.y + this.size / 3, this.x + this.size / 2, this.y - this.size / 2, this.x, this.y);
-                ctx.fillStyle = this.color;
-                ctx.globalAlpha = this.opacity;
-                ctx.fill();
-                ctx.globalAlpha = 1;
-            };
+<!-- 💖 HEART CANVAS -->
+<canvas id="canvas"></canvas>
 
-            Heart.prototype.update = function () {
-                this.y += this.vy;
-                this.opacity -= 0.01;
-            };
+<script src="main.js"></script>
 
-            let fireworks = [];
-            let hearts = [];
-
-            function animate() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                if (Math.random() < 0.1) {
-                    fireworks.push(new Firework(random(0, canvas.width), random(0, canvas.height)));
-                }
-                if (Math.random() < 0.05) {
-                    hearts.push(new Heart(random(0, canvas.width), canvas.height));
-                }
-
-                fireworks.forEach((firework, index) => {
-                    firework.draw();
-                    firework.update();
-                    if (firework.life <= 0) {
-                        fireworks.splice(index, 1);
-                    }
-                });
-
-                hearts.forEach((heart, index) => {
-                    heart.draw();
-                    heart.update();
-                    if (heart.opacity <= 0) {
-                        hearts.splice(index, 1);
-                    }
-                });
-
-                requestAnimationFrame(animate);
-            }
-            animate();
-        };
-    </script>
 </body>
-
 </html>
