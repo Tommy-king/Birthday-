@@ -1,10 +1,10 @@
-// 🎬 Typing Effect
+// 🎬 Typing cinematic intro
 const text = "Hey Nibedita 💖...";
 let i = 0;
 
 function typeEffect() {
   if (i < text.length) {
-    document.getElementById("typing").innerHTML += text.charAt(i);
+    document.getElementById("typing").innerHTML += text[i];
     i++;
     setTimeout(typeEffect, 80);
   } else {
@@ -18,79 +18,57 @@ function typeEffect() {
 typeEffect();
 
 
-// 📸 Image Viewer
-const images = document.querySelectorAll(".album img");
-const viewer = document.getElementById("viewer");
-const viewerImg = document.getElementById("viewer-img");
+// 🎥 AUTO SLIDESHOW
+const slides = [
+  "images/r1.png",
+  "images/r2.png",
+  "images/r3.png",
+  "images/r4.png",
+  "images/r5.jpg"
+];
 
-images.forEach(img => {
-  img.onclick = () => {
-    viewer.style.display = "flex";
-    viewerImg.src = img.src;
-  };
-});
+let index = 0;
 
-function closeViewer() {
-  viewer.style.display = "none";
+function startSlideshow() {
+  setInterval(() => {
+    index = (index + 1) % slides.length;
+    document.getElementById("slide").src = slides[index];
+  }, 2000);
 }
 
 
-// 🎆 Party Mode
-function startParty() {
-  document.getElementById("bgMusic").play();
+// 📖 FLIPBOOK EFFECT
+const pages = document.querySelectorAll(".page");
+
+let current = 0;
+
+function flipPages() {
+  setInterval(() => {
+    pages[current].style.transform = "rotateY(180deg)";
+    current = (current + 1) % pages.length;
+  }, 2000);
+}
+
+
+// 🎂 BLOW CANDLE (click simulation)
+function blowCandle() {
+  document.getElementById("flame").style.display = "none";
 
   confetti({
     particleCount: 200,
-    spread: 120
+    spread: 100
   });
-
-  createHearts();
 }
 
 
-// 💖 Floating Hearts
-function createHearts() {
-  const canvas = document.getElementById("canvas");
-  const ctx = canvas.getContext("2d");
+// 🎉 START EVERYTHING
+function startShow() {
+  document.getElementById("music").play();
+  startSlideshow();
+  flipPages();
 
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-
-  let hearts = [];
-
-  function Heart() {
-    this.x = Math.random() * canvas.width;
-    this.y = canvas.height;
-    this.size = Math.random() * 20 + 10;
-    this.speed = Math.random() * 2 + 1;
-  }
-
-  Heart.prototype.draw = function () {
-    ctx.fillStyle = "pink";
-    ctx.beginPath();
-    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-    ctx.fill();
-  };
-
-  Heart.prototype.update = function () {
-    this.y -= this.speed;
-  };
-
-  function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    if (Math.random() < 0.1) {
-      hearts.push(new Heart());
-    }
-
-    hearts.forEach((h, i) => {
-      h.update();
-      h.draw();
-      if (h.y < 0) hearts.splice(i, 1);
-    });
-
-    requestAnimationFrame(animate);
-  }
-
-  animate();
+  confetti({
+    particleCount: 300,
+    spread: 150
+  });
 }
