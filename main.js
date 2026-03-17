@@ -1,4 +1,9 @@
-// 🎬 Typing cinematic intro
+// 🎬 Netflix intro
+setTimeout(() => {
+  document.getElementById("netflix").style.display = "none";
+}, 2500);
+
+// 💖 Typing intro
 const text = "Hey Nibedita 💖...";
 let i = 0;
 
@@ -14,58 +19,95 @@ function typeEffect() {
     }, 1000);
   }
 }
-
 typeEffect();
 
 
-// 🎥 AUTO SLIDESHOW
-const slides = [
-  "images/r1.png",
-  "images/r2.png",
-  "images/r3.png",
-  "images/r4.png",
-  "images/r5.jpg"
+// 🎥 Cinematic Album
+const cinemaData = [
+  { img: "images/r1.png", text: "The beginning of beautiful memories 💖" },
+  { img: "images/r2.png", text: "Your smile makes everything better 😊" },
+  { img: "images/r3.png", text: "Moments I’ll always cherish ✨" },
+  { img: "images/r4.png", text: "You are truly special 🌸" },
+  { img: "images/r5.jpg", text: "A beautiful soul 💫" }
 ];
 
-let index = 0;
+let cIndex = 0;
 
-function startSlideshow() {
+function startCinematic() {
+  const img = document.getElementById("cinema-img");
+  const caption = document.getElementById("caption");
+
   setInterval(() => {
-    index = (index + 1) % slides.length;
-    document.getElementById("slide").src = slides[index];
-  }, 2000);
+    img.style.animation = "none";
+    void img.offsetWidth;
+    img.style.animation = "zoomEffect 6s linear";
+
+    img.src = cinemaData[cIndex].img;
+    caption.innerText = cinemaData[cIndex].text;
+    caption.style.opacity = 1;
+
+    setTimeout(() => {
+      caption.style.opacity = 0;
+    }, 4000);
+
+    cIndex = (cIndex + 1) % cinemaData.length;
+  }, 6000);
 }
 
 
-// 📖 FLIPBOOK EFFECT
-const pages = document.querySelectorAll(".page");
+// 🎤 Mic Blow Candle
+async function startMicBlow() {
+  const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+  const audioContext = new AudioContext();
+  const mic = audioContext.createMediaStreamSource(stream);
+  const analyser = audioContext.createAnalyser();
 
-let current = 0;
+  mic.connect(analyser);
+  const data = new Uint8Array(analyser.frequencyBinCount);
 
-function flipPages() {
+  function detect() {
+    analyser.getByteFrequencyData(data);
+    let volume = data.reduce((a, b) => a + b) / data.length;
+
+    if (volume > 60) {
+      document.getElementById("flame").style.display = "none";
+
+      confetti({
+        particleCount: 200,
+        spread: 120
+      });
+
+      stream.getTracks().forEach(t => t.stop());
+    }
+
+    requestAnimationFrame(detect);
+  }
+
+  detect();
+}
+
+
+// 💫 Floating Hearts
+function createHearts() {
   setInterval(() => {
-    pages[current].style.transform = "rotateY(180deg)";
-    current = (current + 1) % pages.length;
-  }, 2000);
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 5000);
+  }, 200);
 }
 
 
-// 🎂 BLOW CANDLE (click simulation)
-function blowCandle() {
-  document.getElementById("flame").style.display = "none";
-
-  confetti({
-    particleCount: 200,
-    spread: 100
-  });
-}
-
-
-// 🎉 START EVERYTHING
+// 🎉 Start Show
 function startShow() {
   document.getElementById("music").play();
-  startSlideshow();
-  flipPages();
+
+  startCinematic();
+  createHearts();
 
   confetti({
     particleCount: 300,
