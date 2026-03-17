@@ -1,12 +1,12 @@
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(to bottom, #1a001f, #330033);
+  background: black;
   color: white;
-  overflow-x: hidden;
+  text-align: center;
 }
 
-/* 🎬 Intro */
+/* 🎬 INTRO */
 #intro {
   position: fixed;
   width: 100%;
@@ -15,95 +15,73 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 2.5rem;
-  z-index: 10;
+  font-size: 3rem;
 }
 
-/* 💖 Main */
+/* MAIN */
 #main {
   display: none;
-  text-align: center;
   padding: 20px;
 }
 
 .title {
   font-size: 3rem;
+}
+
+/* 🎥 SLIDESHOW */
+.slideshow img {
+  width: 300px;
+  height: 400px;
+  border-radius: 20px;
+  transition: 1s;
+}
+
+/* 📖 FLIPBOOK */
+.flipbook {
+  margin: 30px auto;
+  width: 200px;
+  height: 150px;
+  perspective: 1000px;
+}
+
+.page {
+  background: pink;
+  color: black;
+  padding: 20px;
+  margin: 5px;
+  transform: rotateY(0deg);
+  transition: transform 1s;
+}
+
+/* 🎂 CAKE */
+.cake {
+  font-size: 60px;
   margin-top: 20px;
-}
-
-/* 📸 Album */
-.album {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 15px;
-  margin-top: 30px;
-}
-
-.album img {
-  width: 160px;
-  height: 220px;
-  object-fit: cover;
-  border-radius: 15px;
   cursor: pointer;
-  transition: 0.4s;
+  position: relative;
 }
 
-.album img:hover {
-  transform: scale(1.15);
+#flame {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-/* 💌 Message */
+/* MESSAGE */
 .message {
-  margin-top: 40px;
-  font-size: 1.2rem;
-  max-width: 600px;
+  margin-top: 30px;
+  max-width: 500px;
   margin-left: auto;
   margin-right: auto;
 }
 
-/* 🎆 Button */
+/* BUTTON */
 button {
-  margin-top: 30px;
-  padding: 12px 30px;
+  margin-top: 20px;
+  padding: 10px 20px;
   font-size: 18px;
-  border-radius: 10px;
-  border: none;
   background: pink;
+  border: none;
   cursor: pointer;
-}
-
-/* 📸 Viewer */
-#viewer {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.9);
-  display: none;
-  justify-content: center;
-  align-items: center;
-}
-
-#viewer img {
-  max-width: 80%;
-  max-height: 80%;
-  border-radius: 10px;
-}
-
-#viewer span {
-  position: absolute;
-  top: 20px;
-  right: 30px;
-  font-size: 40px;
-  cursor: pointer;
-}
-
-/* 💖 Canvas */
-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  pointer-events: none;
 }
