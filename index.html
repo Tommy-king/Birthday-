@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Happy Birthday Nibedita 💖</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nibedita 💖</title>
 
-  <link rel="stylesheet" href="main.css">
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1/dist/confetti.browser.min.js"></script>
+<link rel="stylesheet" href="main.css">
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1/dist/confetti.browser.min.js"></script>
 </head>
 
 <body>
 
-<!-- 🎬 INTRO -->
+<!-- 🎬 CINEMATIC INTRO -->
 <div id="intro">
   <h1 id="typing"></h1>
 </div>
@@ -19,51 +20,43 @@
 <!-- 💖 MAIN -->
 <div id="main">
 
-  <h1 class="title">Happy Birthday Nibedita 🎉💖</h1>
+  <h1 class="title">For Nibedita 💖</h1>
 
-  <!-- 📸 ALBUM -->
-  <div class="album">
-    <img src="images/r1.png">
-    <img src="images/r2.png">
-    <img src="images/r3.png">
-    <img src="images/r4.png">
-    <img src="images/r5.jpg">
-    <img src="images/r6.png">
-    <img src="images/r7.png">
-    <img src="images/r8.png">
+  <!-- 🎥 SLIDESHOW -->
+  <div class="slideshow">
+    <img id="slide" src="images/r1.png">
+  </div>
+
+  <!-- 📖 FLIPBOOK -->
+  <div class="flipbook">
+    <div class="page">Happy Birthday 🎉</div>
+    <div class="page">You are amazing 💖</div>
+    <div class="page">Thank you for everything ✨</div>
+    <div class="page">Stay happy always 😊</div>
+  </div>
+
+  <!-- 🎂 CAKE -->
+  <div class="cake" onclick="blowCandle()">
+    🎂
+    <div id="flame">🔥</div>
   </div>
 
   <!-- 💌 MESSAGE -->
-<div class="message">
-  <p>
-    Hey Nibedita 💖 <br><br>
-    You’re truly one of the brightest gems in my life 🌸 <br>
-    Thanks for all the laughs, crazy adventures, and unforgettable memories we’ve shared ✨ <br><br>
-    Wishing you endless happiness, love, and amazing success in everything you do 🎂 <br><br>
-    Never stop smiling, because your smile lights up the world 😊💫
+  <p class="message">
+    Dear Nibedita 💖 <br><br>
+    You are not just a friend, you are a beautiful part of my life 🌸 <br>
+    May your life be filled with love, happiness and success ✨
   </p>
-</div>
 
-  <!-- 🎆 BUTTON -->
-  <button onclick="startParty()">Celebrate 🎉</button>
+  <button onclick="startShow()">Start Celebration 🎉</button>
 
-</div>
-
-<!-- 📸 FULLSCREEN VIEW -->
-<div id="viewer">
-  <span onclick="closeViewer()">×</span>
-  <img id="viewer-img">
 </div>
 
 <!-- 🎵 MUSIC -->
-<audio id="bgMusic" loop>
+<audio id="music" loop>
   <source src="music/setlove.mp3" type="audio/mpeg">
 </audio>
 
-<!-- 💖 HEART CANVAS -->
-<canvas id="canvas"></canvas>
-
 <script src="main.js"></script>
-
 </body>
 </html>
