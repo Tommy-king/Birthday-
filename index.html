@@ -1,66 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nibedita 💖</title>
-
-<link rel="stylesheet" href="main.css">
-
-<!-- Font -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1/dist/confetti.browser.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Celebration</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
 
-<!-- 🌌 BACKGROUND -->
-<div class="bg"></div>
+    <!-- Background Video -->
+    <div class="video-background">
+        <video autoplay loop muted>
+            <source src="background-video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
 
-<!-- 🎬 HERO -->
-<section class="hero">
-  <h1 class="title">Nibedita</h1>
-  <p class="subtitle">A Story of Beautiful Moments 💖</p>
-  <button onclick="startExperience()">Enter</button>
-</section>
+    <div class="content">
+        <!-- Birthday Message -->
+        <div class="message">
+            <h1>🎉 Happy Birthday! 🎉</h1>
+            <p>Wishing you the most joyful day of your life!</p>
+        </div>
 
-<!-- 🎥 CINEMATIC REEL -->
-<section id="reel">
+        <!-- Celebration Button -->
+        <div class="celebrate-btn">
+            <button onclick="celebrate()">🎈 Celebrate Now!</button>
+        </div>
 
-  <div class="frame">
-    <img src="images/r1.png">
-    <div class="text">Every moment with you feels magical ✨</div>
-  </div>
+        <!-- Image Slider (Photos) -->
+        <div class="slider">
+            <div class="slides">
+                <img src="image1.jpg" alt="Birthday Image 1">
+                <img src="image2.jpg" alt="Birthday Image 2">
+                <img src="image3.jpg" alt="Birthday Image 3">
+                <img src="image4.jpg" alt="Birthday Image 4">
+                <!-- More images here -->
+            </div>
+        </div>
 
-  <div class="frame">
-    <img src="images/r2.png">
-    <div class="text">Your smile lights up everything 😊</div>
-  </div>
+        <!-- Balloons and Flower Animations -->
+        <div id="balloon-container"></div>
+        <div id="flower-container"></div>
+    </div>
 
-  <div class="frame">
-    <img src="images/r3.png">
-    <div class="text">Memories I will always cherish 💫</div>
-  </div>
+    <!-- Background Music -->
+    <audio id="birthday-music" autoplay loop>
+        <source src="happy_birthday_song.mp3" type="audio/mp3">
+        Your browser does not support the audio tag.
+    </audio>
 
-  <div class="frame">
-    <img src="images/r4.png">
-    <div class="text">You are truly special 🌸</div>
-  </div>
-
-</section>
-
-<!-- 🎂 FINAL SCREEN -->
-<section class="final">
-  <h2>Happy Birthday Nibedita 🎂💖</h2>
-  <button onclick="celebrate()">Celebrate 🎉</button>
-</section>
-
-<audio id="music" loop>
-  <source src="music/setlove.mp3">
-</audio>
-
-<script src="main.js"></script>
-
+    <script src="script.js"></script>
 </body>
 </html>
