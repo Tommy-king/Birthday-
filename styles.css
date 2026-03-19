@@ -63,21 +63,29 @@ body {
     width: 100%;
     height: 100%;
     border-radius: 15px;
+    animation: photoAnimation 10s infinite;
 }
 
-/* Animation for elements */
+/* Animation for photos (zoom, float, rotate, etc.) */
+@keyframes photoAnimation {
+    0% {
+        transform: scale(1) translateY(0) rotate(0deg);
+    }
+    25% {
+        transform: scale(1.05) translateY(-10px) rotate(5deg);
+    }
+    50% {
+        transform: scale(1.1) translateY(10px) rotate(10deg);
+    }
+    75% {
+        transform: scale(1.05) translateY(-10px) rotate(5deg);
+    }
+    100% {
+        transform: scale(1) translateY(0) rotate(0deg);
+    }
+}
+
 @keyframes fadeIn {
     0% { opacity: 0; }
     100% { opacity: 1; }
-}
-
-/* Animations for images */
-@keyframes floatBalloon {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-500px); }
-}
-
-@keyframes floatFlower {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(500px); }
 }
