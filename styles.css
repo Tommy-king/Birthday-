@@ -44,10 +44,11 @@ body {
     color: #fff;
 }
 
+/* Photo Slideshow */
 .slider {
     margin-top: 30px;
-    width: 80%;
-    height: 400px;
+    width: 90%;  /* Increased size for better view */
+    height: 500px; /* Increased height */
     overflow: hidden;
     margin: 50px auto;
     position: relative;
@@ -62,29 +63,31 @@ body {
 .slides img {
     width: 100%;
     height: 100%;
+    object-fit: cover;  /* Ensures images cover the area properly */
     border-radius: 15px;
-    animation: photoAnimation 10s infinite;
+    animation: photoAnimation 10s ease-in-out infinite;
 }
 
-/* Animation for photos (zoom, float, rotate, etc.) */
+/* Improved Photo Animation */
 @keyframes photoAnimation {
     0% {
         transform: scale(1) translateY(0) rotate(0deg);
     }
     25% {
-        transform: scale(1.05) translateY(-10px) rotate(5deg);
+        transform: scale(1.1) translateY(-20px) rotate(10deg);
     }
     50% {
-        transform: scale(1.1) translateY(10px) rotate(10deg);
+        transform: scale(1.2) translateY(10px) rotate(20deg);
     }
     75% {
-        transform: scale(1.05) translateY(-10px) rotate(5deg);
+        transform: scale(1.1) translateY(-20px) rotate(10deg);
     }
     100% {
         transform: scale(1) translateY(0) rotate(0deg);
     }
 }
 
+/* Animation for message fade-in */
 @keyframes fadeIn {
     0% { opacity: 0; }
     100% { opacity: 1; }
